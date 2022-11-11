@@ -11,9 +11,15 @@ export class ClientsFormComponent implements OnInit {
 
   client: Client;
 
-  constructor() { }
+  constructor() { 
+    this.client = new Client();
+  }
 
   ngOnInit(): void {
+  }
+
+  click(){
+    console.log(this.client)
   }
 
 }
