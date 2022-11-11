@@ -18,8 +18,8 @@ export class ClientsFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click(){
-    console.log(this.client)
+  onSubmit(){
+    
   }
 
 }
