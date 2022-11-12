@@ -12,7 +12,7 @@ export class ClientsService {
   constructor( private http: HttpClient ) { }
 
   save(client : Client) : Observable<Client> { //Observable para obter a resposta da chamada
-    return this.http.post<Client>('http://localhost:8081/api/clients', client);
+    return this.http.post<Client>('http://localhost:8080/api/clients', client);
   }
 
   getClient() : Client {
