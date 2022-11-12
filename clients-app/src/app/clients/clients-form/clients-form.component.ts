@@ -20,7 +20,9 @@ export class ClientsFormComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    this.service.save(this.client).subscribe( response => {
+      console.log(response);
+    })
   }
 
 }
