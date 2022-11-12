@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Client } from './clients/clients';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientsService {
 
-  constructor() { }
+  constructor( private http: HttpClient ) { }
 
   getClient() : Client {
     let client : Client = new Client();
