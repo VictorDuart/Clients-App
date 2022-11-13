@@ -11,6 +11,8 @@ import { ClientsService } from '../../clients.service'
 export class ClientsFormComponent implements OnInit {
 
   client: Client;
+  success: boolean = false;
+  errors: String[];
 
   constructor( private service: ClientsService ) { 
     this.client = service.getClient();
@@ -21,8 +23,14 @@ export class ClientsFormComponent implements OnInit {
 
   onSubmit(){
     this.service.save(this.client).subscribe( response => {
-      console.log(response);
-    })
+      this.success = true;
+      this.errors = null;
+      this.client = response;
+    }, errorResponse => {
+      this.errors = errorResponse.error.errors;
+      this.success = false;
+    }
+    )
   }
 
 }
