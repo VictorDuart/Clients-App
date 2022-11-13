@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClientsFormComponent } from './clients-form/clients-form.component'
+import { ClientsFormComponent } from './clients-form/clients-form.component';
 import { ListClientsComponent } from './list-clients/list-clients.component';
 
 

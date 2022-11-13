@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
 
 //Para definir as rotas que são da aplicação, que são comuns às aplicações.
 const routes: Routes = [
