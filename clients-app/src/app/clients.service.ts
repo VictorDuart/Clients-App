@@ -15,10 +15,19 @@ export class ClientsService {
     return this.http.post<Client>('http://localhost:8080/api/clients', client);
   }
 
-  getClient() : Client {
+/*  getClient() : Observable<Client[]> {
     let client : Client = new Client();
     client.name = 'Victor';
     client.cpf = '08225024613'
-    return client;
+    return null;
+  }*/
+
+  getClients() : Client[]{
+    let client = new Client();
+    client.id = 1;
+    client.name = 'Victor';
+    client.cadastreDate = '13/11/2022'
+    client.cpf = '08225024613'
+    return [client];
   }
 }
