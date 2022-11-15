@@ -3,6 +3,18 @@
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
 <div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                {{ successMessage }}
+            </div> 
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div> 
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-2">
             <button class="btn btn-warning" (click)='newCadastre()'>
@@ -33,10 +45,33 @@
                             <button class="btn btn-primary" routerLink = "/clients-form/{{ client.id }}">
                                 <i class = "fa fa-edit"></i>
                             </button>
+
+                            <button class="btn btn-danger ml-3" data-toggle="modal" data-target="#modalDeletion" (click)="prepareDeletion(client)">
+                                <i class = "fa fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div id="modalDeletion" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+                
+                <div class="modal-body" *ngIf="selectedClient">
+                    Deseja realmente excluir o cliente {{selectedClient.name}}?
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deleteClient()" data-dismiss="modal">Sim</button>
+                    <button class="btn btn-default" data-dismiss="modal">Não</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
