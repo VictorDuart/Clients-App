@@ -1,10 +1,14 @@
 package io.github.VictorDuart.model.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
-public class Service {
+@Data
+public class ServiceProvided {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +23,7 @@ public class Service {
 
     @Column
     private BigDecimal value;
+
+    @Column
+    private LocalDate date;
 }
