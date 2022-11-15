@@ -1,5 +1,6 @@
 package io.github.VictorDuart.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,5 +26,6 @@ public class ServiceProvided {
     private BigDecimal value;
 
     @Column
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 }

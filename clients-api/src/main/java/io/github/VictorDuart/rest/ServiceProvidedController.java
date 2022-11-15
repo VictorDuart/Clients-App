@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/service-provided")
@@ -23,7 +24,6 @@ public class ServiceProvidedController {
     private final ClientRepository clientRepository;
     private final ServiceProvidedRepository repository;
     private final BigDecimalConverter bigDecimalConverter;
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -40,5 +40,13 @@ public class ServiceProvidedController {
         serviceProvided.setValue(bigDecimalConverter.converter(dto.getValue()));
 
         return repository.save(serviceProvided);
+    }
+
+    @GetMapping
+    public List<ServiceProvided> search(
+            @RequestParam(value = "name", required = false, defaultValue = "") String name,
+            @RequestParam(value = "month", required = false) Integer month
+    ){
+        return repository.findByClientNameAndServiceMouth("%" + name + "%", month);
     }
 }
