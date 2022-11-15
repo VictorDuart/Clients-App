@@ -17,4 +17,12 @@ export class ClientsService {
   getClients() : Observable<Client[]>{
     return this.http.get<Client[]>('http://localhost:8080/api/clients');
   }
+
+  getClientById(id: number) : Observable<Client>{
+    return this.http.get<any>(`http://localhost:8080/api/clients/${id}`);
+  }
+
+  update(client : Client) : Observable<Client> { //Observable para obter a resposta da chamada
+    return this.http.put<Client>(`http://localhost:8080/api/clients/${client.id}`, client);
+  }
 }

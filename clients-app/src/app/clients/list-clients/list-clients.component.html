@@ -29,7 +29,11 @@
                         <td>{{ client.name }}</td>
                         <td>{{ client.cpf }}</td>
                         <td>{{ client.cadastreDate }}</td>
-                        <td></td>
+                        <td>
+                            <button class="btn btn-primary" routerLink = "/clients-form/{{ client.id }}">
+                                <i class = "fa fa-edit"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
