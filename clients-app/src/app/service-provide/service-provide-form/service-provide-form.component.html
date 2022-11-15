@@ -1,0 +1,58 @@
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Novo</li>
+</ol>
+<div class="coitaner">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Cliente: </label>
+                    <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="service.idClient">
+                        <option value="">Selecione...</option>
+                        <option *ngFor="let client of clients" [ngValue]="client.id">
+                            {{ client.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <input class="form-control" 
+                    [(ngModel)]="service.desc" type="text" name="desc" id="inputDesc">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input class="form-control" 
+                    [(ngModel)]="service.date" type="text" name="desc" id="inputDesc">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Preço:</label>
+                    <input class="form-control" 
+                    [(ngModel)]="service.value" type="text" name="desc" id="inputDesc">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i>
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
