@@ -1,4 +1,4 @@
-export class serviceProvide{
+export class ServiceProvide{
     desc:string;
     value:string;
     date:string;

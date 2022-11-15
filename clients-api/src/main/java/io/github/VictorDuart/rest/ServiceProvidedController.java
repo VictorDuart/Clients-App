@@ -19,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/service-provided")
 @RequiredArgsConstructor //permite a abstração do construtor (constrói um construtor com os argumentos obrigatórios da classe)
+@CrossOrigin("http://localhost:4200")
 public class ServiceProvidedController {
 
     private final ClientRepository clientRepository;
