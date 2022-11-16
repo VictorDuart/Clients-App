@@ -11,8 +11,10 @@ import { ServiceProvidedService } from '../../service-provided.service';
 })
 export class ServiceProvideFormComponent implements OnInit {
 
-  clients: Client[]
-  service: ServiceProvide
+  clients: Client[];
+  service: ServiceProvide;
+  success: boolean = false;
+  errors: String[];
 
   constructor(private clientService: ClientsService, private serviceService: ServiceProvidedService) {
     this.service = new ServiceProvide();
@@ -23,7 +25,14 @@ export class ServiceProvideFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.serviceService.save(this.service).subscribe( response => console.log(response));
+    this.serviceService.save(this.service).subscribe( response => {
+      this.errors = null; 
+      this.success = true;
+      this.service = new ServiceProvide();
+    }, errorResponse => {
+      this.success = false;
+      this.errors = errorResponse.error.errors;
+    });
   }
 
 }
