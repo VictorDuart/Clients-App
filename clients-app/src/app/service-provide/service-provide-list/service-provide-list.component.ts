@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceProvideListComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  month: number;
+  monthList: number[];
+
+  constructor() { 
+    this.monthList = [1,2,3,4,5,6,7,8,9,10,11,12];
+  }
 
   ngOnInit(): void {
   }
 
+  search(){
+    console.log(this.name, this.month)
+  }
 }
