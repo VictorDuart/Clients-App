@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceProvideSearch } from './serviceProvideSearch';
+import { ServiceProvidedService } from '../../service-provided.service';
 
 @Component({
   selector: 'app-service-provide-list',
@@ -10,8 +12,11 @@ export class ServiceProvideListComponent implements OnInit {
   name: string;
   month: number;
   monthList: number[];
+  list: ServiceProvideSearch[];
 
-  constructor() { 
+  constructor(
+    private service: ServiceProvidedService
+  ) { 
     this.monthList = [1,2,3,4,5,6,7,8,9,10,11,12];
   }
 
@@ -19,6 +24,8 @@ export class ServiceProvideListComponent implements OnInit {
   }
 
   search(){
-    console.log(this.name, this.month)
+    this.service
+      .search(this.name, this.month)
+      .subscribe(response => this.list = response);
   }
 }
