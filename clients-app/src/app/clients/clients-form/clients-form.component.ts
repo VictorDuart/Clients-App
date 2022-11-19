@@ -39,7 +39,7 @@ export class ClientsFormComponent implements OnInit {
 
   
   backFilterPage(){
-    this.router.navigate(['/list-clients'])
+    this.router.navigate(['/clients/list'])
   }
 
   onSubmit(){

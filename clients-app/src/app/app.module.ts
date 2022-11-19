@@ -12,13 +12,15 @@ import { ClientsModule } from './clients/clients.module';
 import { ClientsService } from './clients.service';
 import { ServiceProvideModule } from './service-provide/service-provide.module';
 import { ServiceProvidedService } from './service-provided.service';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

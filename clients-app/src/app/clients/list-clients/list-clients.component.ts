@@ -26,7 +26,7 @@ export class ListClientsComponent implements OnInit {
   }
 
   newCadastre(){
-    this.router.navigate(['/clients-form']);
+    this.router.navigate(['/clients/form']);
   }
 
   prepareDeletion(client: Client){
