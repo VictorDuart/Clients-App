@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +19,6 @@ public class ServiceProvidedDTO {
     @NotEmpty(message = "{campo.date.obrigatorio}")
     private String date;
 
-    @NotEmpty(message = "{campo.client.obrigatorio}")
+    @NotNull(message = "{campo.client.obrigatorio}")
     private Integer idClient;
 }

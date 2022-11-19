@@ -30,6 +30,32 @@
                 </button>
             </div>
         </div>   
-        <br>        
+               
     </form>
+    <br> 
+    <div class="row">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{message}}
+        </div> 
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of list">
+                        <td>{{ s.client.name }}</td>
+                        <td>{{ s.desc }}</td>
+                        <td>{{ s.value }}</td>
+                        <td>{{ s.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
